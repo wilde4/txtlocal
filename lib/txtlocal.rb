@@ -1,5 +1,6 @@
 require 'txtlocal/config'
 require 'txtlocal/message'
+require 'txtlocal/credit'
 
 module Txtlocal
   class << self
@@ -20,6 +21,12 @@ module Txtlocal
       msg = Txtlocal::Message.new(message, recipients, options)
       msg.send!
       msg
+    end
+
+    def check_credit
+      credit_check = Txtlocal::Credit.new
+      credit_check.send!
+      credit_check
     end
 
   end
